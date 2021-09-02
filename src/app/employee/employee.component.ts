@@ -18,10 +18,10 @@ export class EmployeeComponent implements OnInit {
 
   modalTitle = "";
   EmployeeID = 0;
-  EmployeeName = "";
+  EmployeesName = "";
   Department = "";
-  DateOfJoining = "";
-  PhotoFileName = "default.png";
+  DateofJoining = "";
+  photoFileName = "default.png";
   PhotoPath = environment.PHOTO_URL;
 
 
@@ -35,8 +35,8 @@ export class EmployeeComponent implements OnInit {
       .subscribe(data => {
         this.employee = data;
       });
-    this.http.get<any>(environment.API_URL + 'department')
-      .subscribe(data => {
+      this.http.get<any>(environment.API_URL+'department')
+      .subscribe(data =>{
         this.departments = data;
       });
 
@@ -45,25 +45,25 @@ export class EmployeeComponent implements OnInit {
   addClick() {
     this.modalTitle = "Add Employee";
     this.EmployeeID = 0;
-    this.EmployeeName = "";
+    this.EmployeesName = "";
     this.Department = "";
-    this.DateOfJoining = "";
-    this.PhotoFileName = "default.png";
+    this.DateofJoining = "";
+    this.photoFileName = "default.png";
   }
   editClick(emp: any) {
     this.modalTitle = "Edit Employee";
     this.EmployeeID = emp.EmployeeID;
-    this.EmployeeName = emp.EmployeeName;
+    this.EmployeesName = emp.EmployeesName;
     this.Department = emp.Department;
-    this.DateOfJoining = emp.DateOfJoining;
-    this.PhotoFileName = emp.PhotoFileName;
+    this.DateofJoining = emp.DateOfJoining;
+    this.photoFileName = emp.PhotoFileName;
   }
   createClick() {
     var val = {
-      EmployeeName: this.EmployeeName,
+      EmployeesName: this.EmployeesName,
       Department: this.Department,
-      DateOfJoining: this.DateOfJoining,
-      PhotoFileName: this.PhotoFileName
+      DateofJoining: this.DateofJoining,
+      photoFileName: this.photoFileName
     }
     this.http.post(environment.API_URL + 'employee', val)
       .subscribe(res => {
@@ -73,10 +73,11 @@ export class EmployeeComponent implements OnInit {
   }
   updateClick() {
     var val = {
-      EmployeeName: this.EmployeeName,
+      EmployeeID:this.EmployeeID,
+      EmployeesName: this.EmployeesName,
       Department: this.Department,
-      DateOfJoining: this.DateOfJoining,
-      PhotoFileName: this.PhotoFileName
+      DateofJoining: this.DateofJoining,
+      photoFileName: this.photoFileName
     }
     this.http.put(environment.API_URL + 'employee', val)
       .subscribe(res => {

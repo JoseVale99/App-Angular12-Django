@@ -21,6 +21,8 @@ Add employee
                 DateOfJoining
             </th>
             <th>
+               Filename
+            <th>
                 options
             </th>
         </tr>
@@ -28,9 +30,10 @@ Add employee
     <tbody>
         <tr *ngFor="let emp of employee">
             <td>{{ emp.EmployeeID }}</td>
-            <td> {{ emp.EmployeeName }}</td>
+            <td> {{ emp.EmployeesName }}</td>
             <td>{{ emp.Department }}</td>
-            <td> {{ emp.DateOfJoining }}</td>
+            <td> {{ emp.DateofJoining }}</td>
+            <td> {{ emp.photoFileName }}</td>
             <td>
                 <button type="button" class="btn btn-light mr-1"
                 data-bs-toggle="modal"
@@ -74,7 +77,7 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
                 <div class="p-2 w-50 bd-highlight">
             <div class="input-group mb-3">
                 <span class="input-group-text">Name</span>
-                <input type="text" class="form-control" [(ngModel)]="EmployeeName" > 
+                <input type="text" class="form-control" [(ngModel)]="EmployeesName" > 
             </div>
 
             <div class="input-group mb-3">
@@ -88,14 +91,15 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
             
             <div class="input-group mb-3">
                 <span class="input-group-text">DOJ</span>
-                <input type="date" class="form-control" [(ngModel)]="EmployeeName" > 
+                <input type="date" class="form-control" [(ngModel)]="DateofJoining" > 
             </div>
         </div>
         <div class="d-flex flex-row bd-highlight mb-3">
             <img width="250px" height="250px" 
-            [src]="PhotoPath+PhotoFileName"
-            alt="">
+            [src]="PhotoPath+photoFileName"/>
+            
         </div>
+       
     </div>
             <button type="button" (click)="createClick()" 
             *ngIf="EmployeeID==0" class="btn btn-primary ">
