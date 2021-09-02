@@ -42,4 +42,26 @@ export class DepartmentComponent implements OnInit {
     this.DepartmentID = dep.DepartmentID;
     this.DepartmentName = dep.DepartmentName;
   }
+  createClick(){
+    var val = {
+     DepartmentName:this.DepartmentName
+    }
+    this.http.post(environment.API_URL+'department',val)
+    .subscribe(res => {
+      alert(res.toString());
+      this.refreshList();
+    });
+  }
+  updateClick(){
+    var val = {
+     DepartmentID:this.DepartmentID,
+     DepartmentName:this.DepartmentName
+    }
+    this.http.put(environment.API_URL+'department',val)
+    .subscribe(res => {
+      alert(res.toString());
+      this.refreshList();
+    });
+  }
+
 }
