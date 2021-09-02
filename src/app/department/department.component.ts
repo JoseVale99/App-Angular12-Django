@@ -67,7 +67,7 @@ export class DepartmentComponent implements OnInit {
     if (confirm('Arre you sure?')){
 
    
-    this.http.delete(environment.API_URL+'department'+id)
+    this.http.delete(environment.API_URL+'department/'+id)
     .subscribe(res => {
       alert(res.toString());
       this.refreshList(); 
