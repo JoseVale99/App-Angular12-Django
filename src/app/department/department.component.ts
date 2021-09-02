@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { environment } from 'src/environments/environment';
+import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:HttpClient) {
+   }
+    departments:any=[];
+
+
+  
 
   ngOnInit(): void {
+    this.refreshList();
   }
 
+  refreshList(){
+    this.http.get<any>(environment.API_URL+'department')
+    .subscribe(data =>{
+      this.departments = data;
+    });
+
+  }
 }
