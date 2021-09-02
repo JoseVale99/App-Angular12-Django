@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+
+
+// import module
+
 import { HomeComponent } from './home/home.component';
 import {DepartmentComponent} from './department/department.component'
 import {EmployeeComponent} from './employee/employee.component'
 
+// Routing and Navigation
+ 
 const routes: Routes = [
   {path: 'home',component: HomeComponent},
   {path: 'department',component:DepartmentComponent},
