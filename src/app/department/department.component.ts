@@ -63,5 +63,16 @@ export class DepartmentComponent implements OnInit {
       this.refreshList();
     });
   }
+  deleteClick(id:any){
+    if (confirm('Arre you sure?')){
 
+   
+    this.http.delete(environment.API_URL+'department'+id)
+    .subscribe(res => {
+      alert(res.toString());
+      this.refreshList(); 
+  });
+  }
+
+}
 }
