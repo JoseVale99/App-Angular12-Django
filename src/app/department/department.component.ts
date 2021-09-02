@@ -14,6 +14,9 @@ export class DepartmentComponent implements OnInit {
    }
     departments:any=[];
 
+   modalTitle = "";
+   DepartmentID = 0;
+   DepartmentName = "";
 
   
 
@@ -27,5 +30,16 @@ export class DepartmentComponent implements OnInit {
       this.departments = data;
     });
 
+  }
+
+  addClick(){
+    this.modalTitle = "Add Department";
+    this.DepartmentID = 0;
+    this.DepartmentName = "";
+  }
+  editClick(dep:any){
+    this.modalTitle = "Edit Department";
+    this.DepartmentID = dep.DepartmentID;
+    this.DepartmentName = dep.DepartmentName;
   }
 }
