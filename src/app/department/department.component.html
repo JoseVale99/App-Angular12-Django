@@ -1,3 +1,10 @@
+<button type="button" class="btn btn-primary m-2 float-end"
+data-bs-toggle="modal"
+data-bs-target="#exampleModal" 
+(click)="addClick()">
+Add department
+</button>
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -17,7 +24,10 @@
             <td>{{ dep.DepartmentID }}</td>
             <td> {{ dep.DepartmentName }}</td>
             <td>
-                <button type="button" class="btn btn-light mr-1">
+                <button type="button" class="btn btn-light mr-1"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal" 
+                (click)="editClick(dep)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path
@@ -27,7 +37,9 @@
                     </svg>
                 </button>
 
-                <button type="button" class="btn btn-light mr-1">
+                <button type="button" class="btn btn-light mr-1"
+                (click)="deleteClick(dep.DepartmentID)"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-trash-fill" viewBox="0 0 16 16">
                         <path
