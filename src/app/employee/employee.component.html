@@ -83,7 +83,7 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
             <div class="input-group mb-3">
                 <span class="input-group-text">Department</span>
                 <select class="form-select" [(ngModel)]="Department">
-                    <option *ngFor="let dep in departments">
+                    <option *ngFor="let dep of departments">
                     {{ dep.DepartmentName }}
                 </option>
                 </select>
@@ -94,10 +94,14 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
                 <input type="date" class="form-control" [(ngModel)]="DateofJoining" > 
             </div>
         </div>
-        <div class="d-flex flex-row bd-highlight mb-3">
-            <img width="250px" height="250px" 
-            [src]="PhotoPath+photoFileName"/>
+        <div class="p-2 w-50 bd-highlight">
+            <img 
+            [src]="PhotoPath+photoFileName"
+            width="250px" height="250px" 
+            />
             
+                <input type="file" class="m-2" (change)="imageUploacd($event)">
+        
         </div>
        
     </div>
