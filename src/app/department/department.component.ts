@@ -18,9 +18,9 @@ export class DepartmentComponent implements OnInit {
    DepartmentID = 0;
    DepartmentName = "";
 
-  DepartmentIDFilter = "";
-  DepartmentNameFilter = "";
-  DepartmentWithoutFilter:any = [];
+   DepartmentIDFilter="";
+   DepartmentNameFilter="";
+   departmentsWithoutFilter:any=[];
 
   ngOnInit(): void {
     this.refreshList();
@@ -30,7 +30,7 @@ export class DepartmentComponent implements OnInit {
     this.http.get<any>(environment.API_URL+'department')
     .subscribe(data =>{
       this.departments = data;
-      this.DepartmentWithoutFilter = data;
+      this.departmentsWithoutFilter = data;
     });
 
   }
@@ -78,29 +78,30 @@ export class DepartmentComponent implements OnInit {
   }
 
 } 
- QueryFunc(){
-  var DepartmentIDFilter = this.DepartmentIDFilter;
-  var DepartmentNameFilter = this.DepartmentName;
-  this.departments = this.DepartmentWithoutFilter.filter(
+FilterFn(){
+  var DepartmentIDFilter=this.DepartmentIDFilter;
+  var DepartmentNameFilter=this.DepartmentNameFilter;
+
+
+  this.departments=this.departmentsWithoutFilter.filter(
     function(el:any){
       return el.DepartmentID.toString().toLowerCase().includes(
-        DepartmentIDFilter.toString().trim().toLowerCase())
-        && el.DepartmentNameFilter.toString().toLowerCase().includes(
-          DepartmentNameFilter.toString().trim().toLowerCase())
+        DepartmentIDFilter.toString().trim().toLowerCase()
+      )&& 
+        el.DepartmentName.toString().toLowerCase().includes(
+        DepartmentNameFilter.toString().trim().toLowerCase())
     }
   );
-  
-   }
-   sortResult(prop: any, asc:any){
-    this.departments = this.DepartmentWithoutFilter.sort(
-      function(a: any, b: any){
-        if (asc){
-          return (a[prop]> b[prop])?1:((a[prop]<b[prop])?-1:0);
-        }else{
-          return (b[prop]> a[prop])?1:((b[prop]<a[prop])?-1:0);
-        }
-       
-      }
-    );
-   }
+}
+
+sortResult(prop:any,asc:any){
+  this.departments=this.departmentsWithoutFilter.sort(function(a:any,b:any){
+    if(asc){
+      return (a[prop]>b[prop])?1:((a[prop]<b[prop])?-1:0);
+    }
+    else{
+      return (b[prop]>a[prop])?1:((b[prop]<a[prop])?-1:0);
+    }
+  });
+}
 }
