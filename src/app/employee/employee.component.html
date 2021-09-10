@@ -1,40 +1,54 @@
-<button type="button" class="btn btn-primary m-2 float-end"
-data-bs-toggle="modal"
-data-bs-target="#exampleModal" 
-(click)="addClick()">
-Add employee
-</button>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>
+<div class="container-fluid">
+    <button type="button" class="btn btn-primary m-2 float-end"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal" 
+    (click)="addClick()">
+    Add employee
+    </button>
+    
+    <div class="table-responsive">
+<table class="table  table-responsive table-bordered table-striped ">
+    <thead >
+        <tr class = "table-dark">
+          
+            <th scope="col" class="text-center">
                 EmployeeID
             </th>
-            <th>
+            <th scope="col" class="text-center align-content-md">
+                Avatar
+            </th>
+            <th scope="col" class="text-center">
                 Employee Name
             </th>
-            <th>
+            <th scope="col" class="text-center">
                 Department
             </th>
-            <th>
+            <th scope="col" class="text-center">
                 DateOfJoining
             </th>
-            <th>
-               Filename
-            <th>
+     
+
+            <th scope="col">
                 options
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let emp of employee">
-            <td>{{ emp.EmployeeID }}</td>
-            <td> {{ emp.EmployeesName }}</td>
-            <td>{{ emp.Department }}</td>
-            <td> {{ emp.DateofJoining }}</td>
-            <td> {{ emp.photoFileName }}</td>
-            <td>
+            
+            <td  scope="row">{{ emp.EmployeeID }}</td>
+            <td  scope="row" class="text-center">
+              
+                <img src="{{emp.photoFileName}}" class="img-responsive"
+                width="10%"
+                > 
+            </td>
+            <td scope="row" > {{ emp.EmployeesName }}</td>
+            <td  scope="row">{{ emp.Department }}</td>
+            <td  scope="row"> {{ emp.DateofJoining }}</td>
+           
+            <td class="text-center" colspan="2">
                 <button type="button" class="btn btn-light mr-1"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal" 
@@ -62,6 +76,8 @@ Add employee
         </tr>
     </tbody>
 </table>
+</div>
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" 
 aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
@@ -96,14 +112,16 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
         </div>
         <div class="p-2 w-50 bd-highlight">
             <img 
-            [src]="PhotoPath+photoFileName"
+            src="{{photoFileName}}"
             width="250px" height="250px" 
             />
             
                 <input type="file" class="m-2" (change)="imageUploacd($event)">
-        
-        </div>
        
+
+        </div>
+        
+
     </div>
             <button type="button" (click)="createClick()" 
             *ngIf="EmployeeID==0" class="btn btn-primary ">
