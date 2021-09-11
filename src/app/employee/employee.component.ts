@@ -56,7 +56,7 @@ export class EmployeeComponent implements OnInit {
     this.EmployeesName = emp.EmployeesName;
     this.Department = emp.Department;
     this.DateofJoining = emp.DateOfJoining;
-    this.photoFileName = emp.PhotoFileName;
+    this.photoFileName = emp.photoFileName;
   }
   createClick() {
     var val = {
