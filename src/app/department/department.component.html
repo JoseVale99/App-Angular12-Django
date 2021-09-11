@@ -1,14 +1,20 @@
-<button type="button" class="btn btn-primary m-2 float-end"
+
+<div class="container">
+    <div class="row mt-lg-5">
+        <div class="col">
+            <button type="button" class="btn btn-outline-primary m-2 float-end"
 data-bs-toggle="modal"
 data-bs-target="#exampleModal" 
 (click)="addClick()">
 Add department
 </button>
+</div>    
+</div>
 
-<table class="table table-bordered table-striped">
+<table class="table mt-lg-3 table-bordered table-striped">
     <thead>
-        <tr>
-            <th>
+        <tr >
+            <th class="text-center">
                 <div class="d-flex flex-row">
 
         
@@ -31,9 +37,12 @@ Add department
                     </svg>
                     </button>
                 </div>
-                DepartmentID
+               
+                     DepartmentID
+     
+             
             </th>
-            <th>
+            <th class="text-center">
                 <div class="d-flex flex-row">
 
                     <input class="form-control m-2"
@@ -57,12 +66,12 @@ Add department
                 </div>
                 DepartmentName
             </th>
-            <th>
+            <th class="text-center">
                 options
             </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="text-center">
         <tr *ngFor="let dep of departments">
             <td>{{ dep.DepartmentID }}</td>
             <td> {{ dep.DepartmentName }}</td>
@@ -97,8 +106,8 @@ Add department
 
 <div class="modal fade" id="exampleModal" tabindex="-1" 
 aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
-<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
+<div class="modal-dialog  modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content bg-dark text-light"> 
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"> {{ modalTitle }}</h5>
             <button type="button" class="btn-close " data-bs-dismiss="modal"
@@ -113,12 +122,13 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
             *ngIf="DepartmentID==0" class="btn btn-primary ">
             Create
         </button>
-
+        <div class="d-grid mt-lg-5 gap-2 col-6 mx-auto">
         <button type="button" (click)="updateClick()" 
-        *ngIf="DepartmentID!=0" class="btn btn-primary ">
+        *ngIf="DepartmentID!=0" class="btn btn-outline-warning ">
         Update
     </button>
         </div>
+    </div>
 
     </div>
 </div>

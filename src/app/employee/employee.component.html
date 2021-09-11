@@ -1,13 +1,20 @@
 
-<div class="container-fluid">
-    <button type="button" class="btn btn-primary m-2 float-end"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal" 
-    (click)="addClick()">
-    Add employee
-    </button>
+<div class="container">
+    <div class="row mt-lg-5">
+        <div class="col">
+            <button type="button" class="btn btn-outline-primary m-2 float-end"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal" 
+            (click)="addClick()">
+            Add employee
+            </button>
+    </div>
     
-    <div class="table-responsive">
+</div></div>
+<div class="container">
+    <div class="row">
+       
+    <div class="col mt-lg-3">
 <table class="table  table-responsive table-bordered table-striped ">
     <thead >
         <tr class = "table-dark">
@@ -53,7 +60,7 @@
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal" 
                 (click)="editClick(emp)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor"
                         class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path
                             d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -65,7 +72,7 @@
                 <button type="button" class="btn btn-light mr-1"
                 (click)="deleteClick(emp.EmployeeID)"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor"
                         class="bi bi-trash-fill" viewBox="0 0 16 16">
                         <path
                             d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
@@ -78,20 +85,21 @@
 </table>
 </div>
 </div>
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" 
 aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
-<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
+<div class="modal-dialog modal-lg  wrap modal-dialog-centered" role="document">
+    <div class="modal-content bg-dark text-light">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"> {{ modalTitle }}</h5>
-            <button type="button" class="btn-close " data-bs-dismiss="modal"
+            <button type="button" class="btn-close btn-warning" data-bs-dismiss="modal"
             aria-label="Close"></button>
         </div>
         <div class="modal-body"> 
-            <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="d-flex flex-row bd-highlight  mb-3">
                 <div class="p-2 w-50 bd-highlight">
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 mt-lg-5">
                 <span class="input-group-text">Name</span>
                 <input type="text" class="form-control" [(ngModel)]="EmployeesName" > 
             </div>
@@ -111,8 +119,8 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
                 [(ngModel)]="DateofJoining" > 
             </div>
         </div>
-        <div class="p-2 w-50 bd-highlight rounded-pill">
-            <img title="photo"
+        <div class="p-2 w-50 mx-lg-5 bd-highlight">
+            <img title="photo" class="img-responsive rounded-pill" 
             src="{{photoFileName}}"
             width="250px" height="250px" 
             />
@@ -129,11 +137,13 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
             Create
         </button>
 
+        <div class="d-grid gap-2 col-6 mx-auto">
         <button type="button" (click)="updateClick()" 
-        *ngIf="EmployeeID!=0" class="btn btn-primary ">
+        *ngIf="EmployeeID!=0" class="btn  btn-outline-warning btn-lg">
         Update
     </button>
-        </div>
+</div>        
+</div>
 
     </div>
 </div>
