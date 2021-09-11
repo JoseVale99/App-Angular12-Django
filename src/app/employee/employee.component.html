@@ -107,11 +107,12 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
             
             <div class="input-group mb-3">
                 <span class="input-group-text">DOJ</span>
-                <input type="date" class="form-control" [(ngModel)]="DateofJoining" > 
+                <input type="date" class="form-control" 
+                [(ngModel)]="DateofJoining" > 
             </div>
         </div>
-        <div class="p-2 w-50 bd-highlight">
-            <img 
+        <div class="p-2 w-50 bd-highlight rounded-pill">
+            <img title="photo"
             src="{{photoFileName}}"
             width="250px" height="250px" 
             />
