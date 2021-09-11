@@ -21,7 +21,7 @@ export class EmployeeComponent implements OnInit {
   EmployeesName = "";
   Department = "";
   DateofJoining = "";
-  photoFileName = "default.png";
+  photoFileName = "https://res.cloudinary.com/maximaseguridadapp/image/upload/v1631343573/profile/default_zmtymt.svg";
   PhotoPath = environment.PHOTO_URL;
 
 
@@ -48,7 +48,7 @@ export class EmployeeComponent implements OnInit {
     this.EmployeesName = "";
     this.Department = "";
     this.DateofJoining = "";
-    this.photoFileName = "default.png";
+    this.photoFileName = "https://res.cloudinary.com/maximaseguridadapp/image/upload/v1631343573/profile/default_zmtymt.svg";
   }
   editClick(emp: any) {
     this.modalTitle = "Edit Employee";
@@ -96,11 +96,13 @@ export class EmployeeComponent implements OnInit {
         });
     }
   }
-  imageUploacd(event:any){
+  imageUploacd(event:any, ) {
+    
+    this.EmployeeID = this.EmployeeID;
       var file = event.target.files[0];
       const formData:FormData = new FormData();
       formData.append('file', file, file.name);
-      this.http.post(environment.API_URL+'employee/savefile/', formData)
+      this.http.post(environment.API_URL+'employee/savefile/'+this.EmployeeID, formData)
       .subscribe((data:any) => {
         this.photoFileName = data.toString();
       });

@@ -47,8 +47,8 @@
             <td  scope="row">{{ emp.EmployeeID }}</td>
             <td  scope="row" class="text-center">
               
-                <img src="{{emp.photoFileName}}" class="img-responsive"
-                width="10%"
+                <img src="{{emp.photoFileName}}" class="img-responsive rounded" 
+                width="15%"
                 > 
             </td>
             <td scope="row" > {{ emp.EmployeesName }}</td>
@@ -124,19 +124,22 @@ aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
             src="{{photoFileName}}"
             width="250px" height="250px" 
             />
-            
-                <input type="file" class="m-2" (change)="imageUploacd($event)">
+                
+                <input 
+                
+                type="file" class="m-2" (change)="imageUploacd($event)">
        
 
         </div>
         
 
     </div>
-            <button type="button" (click)="createClick()" 
-            *ngIf="EmployeeID==0" class="btn btn-primary ">
+    <div class="d-grid gap-2 col-6 mx-auto">
+    <button type="button" (click)="createClick()" 
+            *ngIf="EmployeeID==0" class="btn btn-outline-warning">
             Create
         </button>
-
+</div>    
         <div class="d-grid gap-2 col-6 mx-auto">
         <button type="button" (click)="updateClick()" 
         *ngIf="EmployeeID!=0" class="btn  btn-outline-warning btn-lg">
